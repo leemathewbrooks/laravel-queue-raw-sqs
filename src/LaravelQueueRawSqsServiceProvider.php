@@ -6,7 +6,7 @@ use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Support\ServiceProvider;
 use PawprintDigital\LaravelQueueRawSqs\Connectors\RawSqsConnector;
 
-class LaravelQueueRawSqsProvider extends ServiceProvider {
+class LaravelQueueRawSqsServiceProvider extends ServiceProvider {
     /**
      * Register the service provider
      *

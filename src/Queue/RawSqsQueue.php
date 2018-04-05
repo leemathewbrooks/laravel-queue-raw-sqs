@@ -7,7 +7,7 @@ use Aws\Sqs\SqsClient;
 use Illuminate\Queue\SqsQueue;
 use PawprintDigital\LaravelQueueRawSqs\Jobs\RawSqsJob;
 
-class SnsSqsQueue extends SqsQueue {
+class RawSqsQueue extends SqsQueue {
 
     protected $routes = [];
 

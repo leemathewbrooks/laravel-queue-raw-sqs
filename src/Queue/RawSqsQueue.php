@@ -2,7 +2,6 @@
 
 namespace PawprintDigital\LaravelQueueRawSqs\Queue;
 
-
 use Aws\Sqs\SqsClient;
 use Illuminate\Queue\SqsQueue;
 use PawprintDigital\LaravelQueueRawSqs\Jobs\RawSqsJob;
@@ -22,7 +21,7 @@ class RawSqsQueue extends SqsQueue {
     public function __construct(SqsClient $sqs, $default, $prefix = '', $routes)
     {
         parent::__construct($sqs, $default, $prefix);
-        $this->routes=$routes;
+        $this->routes = $routes;
     }
 
     /**
@@ -38,15 +37,8 @@ class RawSqsQueue extends SqsQueue {
             'AttributeNames' => ['ApproximateReceiveCount'],
         ]);
 
-        if (count($response['Messages']) > 0) {
-            return new RawSqsJob(
-                $this->container,
-                $this->sqs,
-                $response['Messages'][0],
-                $this->connectionName,
-                $queue,
-                $this->routes
-            );
+        if ($response['Messages'] && count($response['Messages']) > 0) {
+            return new RawSqsJob($this->container, $this->sqs, $response['Messages'][0], $this->connectionName, $queue, $this->routes);
         }
     }
 }

@@ -4,9 +4,9 @@
     "type": "laravel-package",
     "require": {
         "php": ">=7.0",
-        "illuminate/database": "5.6.*",
-        "illuminate/support": "5.6.*",
-        "illuminate/queue": "5.6.*",
+        "illuminate/database": "~5.6",
+        "illuminate/support": "~5.6",
+        "illuminate/queue": "~5.6",
         "aws/aws-sdk-php": "~3.0"
     },
     "license": "MIT",
